@@ -9,7 +9,7 @@
           class="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded-md cursor-pointer"
           @click="$emit('filter-category', category.name)"
         >
-          <component :is="category.icon" class="w-5 h-5" />
+          <component :is="getIconComponent(category.icon)" class="w-5 h-5" />
           <span>{{ category.label }}</span>
         </li>
       </ul>
@@ -60,12 +60,18 @@
 <script setup>
 import { ref } from 'vue';
 import { Laptop, Bike, Camera } from 'lucide-vue-next';
+import categoriesData from '@/data/categories.json';
 
-const categories = [
-  { name: 'electronics', label: 'Electronics', icon: Laptop },
-  { name: 'sports', label: 'Sports', icon: Bike },
-  { name: 'photography', label: 'Photography', icon: Camera }
-];
+const categories = categoriesData.categories;
+
+const getIconComponent = (iconName) => {
+  const iconMap = {
+    laptop: Laptop,
+    bike: Bike,
+    camera: Camera
+  };
+  return iconMap[iconName];
+};
 
 const priceRange = ref(2000);
 const filters = ref({

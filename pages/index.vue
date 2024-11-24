@@ -42,7 +42,7 @@
           >
             <div class="flex flex-col items-center">
               <component 
-                :is="category.icon" 
+                :is="getIconComponent(category.icon)" 
                 class="w-16 h-16 mb-4 text-blue-600"
               />
               <h3 class="text-xl font-semibold mb-2">{{ category.label }}</h3>
@@ -126,6 +126,7 @@ import { ref, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
 import { ArrowRight, Search, ShoppingCart, Clock, Camera, Bike, Laptop } from 'lucide-vue-next';
 import { useRouter } from 'vue-router';
+import categoriesData from '@/data/categories.json';
 
 const store = useProductStore();
 const router = useRouter();
@@ -134,26 +135,17 @@ const showCart = ref(false);
 // Initialize store if not already initialized
 store.initializeStore();
 
-const categories = [
-  {
-    name: 'electronics',
-    label: 'Electronics',
-    icon: Laptop,
-    description: 'Professional equipment for work and creativity'
-  },
-  {
-    name: 'sports',
-    label: 'Sports & Adventure',
-    icon: Bike,
-    description: 'Quality gear for outdoor activities'
-  },
-  {
-    name: 'photography',
-    label: 'Photography',
-    icon: Camera,
-    description: 'Professional cameras and accessories'
-  }
-];
+const categories = computed(() => categoriesData.categories);
+
+// Function to get the icon component based on the icon name
+const getIconComponent = (iconName) => {
+  const iconMap = {
+    laptop: Laptop,
+    bike: Bike,
+    camera: Camera
+  };
+  return iconMap[iconName];
+};
 
 // Get 3 featured products
 const featuredProducts = computed(() => {

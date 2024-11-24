@@ -1,0 +1,22 @@
+{
+	"categories": [
+		{
+			"name": "electronics",
+			"label": "Electronics",
+			"icon": "laptop",
+			"description": "Professional equipment for work and creativity"
+		},
+		{
+			"name": "sports",
+			"label": "Sports & Adventure",
+			"icon": "bike",
+			"description": "Quality gear for outdoor activities"
+		},
+		{
+			"name": "photography",
+			"label": "Photography",
+			"icon": "camera",
+			"description": "Professional cameras and accessories"
+		}
+	]
+}
