@@ -1,0 +1,41 @@
+{
+	"products": [
+		{
+			"id": 1,
+			"name": "Professional Camera",
+			"description": "High-end DSLR camera for professional photography",
+			"price": 999.99,
+			"rentalPrice": 49.99,
+			"rentalPeriod": "day",
+			"category": "electronics",
+			"availability": true,
+			"type": ["buy", "rent"],
+			"stock": 5,
+			"image": "camera"
+		},
+		{
+			"id": 2,
+			"name": "Mountain Bike",
+			"description": "All-terrain mountain bike for adventures",
+			"price": 599.99,
+			"rentalPrice": 29.99,
+			"rentalPeriod": "day",
+			"category": "sports",
+			"availability": true,
+			"type": ["buy", "rent"],
+			"stock": 8,
+			"image": "bike"
+		},
+		{
+			"id": 3,
+			"name": "Laptop",
+			"description": "Business laptop with high performance",
+			"price": 1299.99,
+			"type": ["buy"],
+			"category": "electronics",
+			"availability": true,
+			"stock": 10,
+			"image": "laptop"
+		}
+	]
+}
